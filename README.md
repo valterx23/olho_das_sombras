@@ -1,18 +1,34 @@
-# olho_das_sombras
-Este repositório é um script bem básico de python feito por um estudante de Segurança da Informação, nele, contem algumas ferramentas para pentest que executam no Kali linux no terminal, necessita executar esse python em um kali linux. É um script bem simples, tenha paciência :) . Quaisquer sugestões, dicas e conselhos, serão muito importantes para o meu crescimento dentro da Área da Segurança da Informação.
+# Olho das Sombras
 
-Existem ferramentas que exigem que estejam instaladas no kali linux, entre elas são:
-- The Harvester
-- EmailHarvester
-- Masscan
-- Amap
-- Smbmap
-- dnsrecon
-- CAT
-- cisco-torch
-- cge.pl
-- cisco-ocs
-- oscanner
-- sfuzz
+> Script Python básico para pentest no Kali Linux
 
-  Futuramente, colocarei mais ferramentas.
+---
+
+## 🔹 Sobre
+Este repositório contém ferramentas de pentest escritas em Python, desenvolvidas por um estudante de Segurança da Informação. Algumas ferramentas exigem instalação prévia no Kali Linux.  
+
+⚠️ Use com responsabilidade! Este projeto é apenas para fins educacionais e de aprendizado.
+
+---
+
+## 🔹 Ferramentas Incluídas
+- **Reconhecimento:** The Harvester, EmailHarvester, Reconhecimento DNS, Whois, Nmap, Masscan, Amap, Smbmap, Dnsrecon  
+- **Vulnerabilidades:** CAT, Cisco Torch, cge.pl, Cisco OCS, Oracle Scanner, Sfuzz
+
+---
+
+## 🔹 Requisitos
+- Kali Linux
+- Python 3
+- Ferramentas externas instaladas (ex.: TheHarvester, Nmap, Masscan...)
+
+---
+
+## 🔹 Como usar
+1. Clone o repositório:
+```bash
+git clone https://github.com/valterx23/olho-das-sombras.git
+```
+2. Execute o Script Python:
+python3 Olho_das_sombras.py
+
