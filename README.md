@@ -8,6 +8,7 @@
 Este repositório contém ferramentas de pentest escritas em Python, desenvolvidas por um estudante de Segurança da Informação. Algumas ferramentas exigem instalação prévia no Kali Linux.  
 
 ⚠️ Use com responsabilidade! Este projeto é apenas para fins educacionais e de aprendizado.
+Este projeto deve ser usado APENAS em ambientes controlados, como máquinas virtuais, redes de laboratório ou sistemas em que você possua autorização legal para testar.
 
 ---
 
