@@ -30,5 +30,6 @@ Este repositório contém ferramentas de pentest escritas em Python, desenvolvid
 git clone https://github.com/valterx23/olho-das-sombras.git
 ```
 2. Execute o Script Python:
+```bash
 python3 Olho_das_sombras.py
-
+```
