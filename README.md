@@ -9,6 +9,9 @@ Este repositório contém ferramentas de pentest escritas em Python, desenvolvid
 
 ⚠️ Use com responsabilidade! Este projeto é apenas para fins educacionais e de aprendizado.
 Este projeto deve ser usado APENAS em ambientes controlados, como máquinas virtuais, redes de laboratório ou sistemas em que você possua autorização legal para testar.
+Este projeto não possui intenção de facilitar atividades ilegais.
+Qualquer uso fora de ambiente autorizado é de responsabilidade do usuário.
+
 
 ---
 
