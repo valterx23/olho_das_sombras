@@ -67,8 +67,8 @@ git clone https://github.com/valterx23/olho-das-sombras.git
 cd olho-das-sombras
 ```
 
-Execute o script principal:
+Execute com sudo script principal:
 ```bash
-python3 Olho_das_sombras.py
+sudo python3 Olho_das_sombras.py
 ```
 Criado por 5PH1NX
