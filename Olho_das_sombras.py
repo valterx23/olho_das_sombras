@@ -2,6 +2,7 @@
 from art import *
 import subprocess
 import random
+
 # ================= FUNÇÕES =================
 # == RECONHECIMENTO ==
 def the_harvester():
@@ -74,7 +75,7 @@ def whois():
         print("\n====== ERRO =======")
         print(resultado.stderr)
 def nmap():
-    print("Você quer: \n [1] Escaneamento TCP \n [2] Escaneamento UDP \n [3] Escaneamento Normal")
+    print("Você quer: \n [1] Escaneamento TCP \n [2] Escaneamento UDP \n [3] Escaneamento Normal \n [4] Escaneamento com vuln TCP \n [5] Escaneamento com vuln UDP")
     escolha = int(input("Digite o número da sua escolha: "))
     if escolha == 1:
         ip = input("Digite o IP do alvo: ")
@@ -101,6 +102,28 @@ def nmap():
     elif escolha == 3:
         ip = input("Digite o IP do alvo: ")
         comando = ["nmap", "-sV", "-O", ip]
+        resultado = subprocess.run(comando, capture_output=True, text=True)
+        print("\n====== RESULTADO =======")
+        print(resultado.stdout)
+
+        if resultado.stderr:
+            print("\n====== ERRO =======")
+            print(resultado.stderr)
+    elif escolha == 4:
+        print("Ok, você optou por um escaneamento mais demorado! Não se esqueça disso!")
+        ip = input("Digite o IP do alvo: ")
+        comando = ["nmap", "-sV", "--script", "vuln", ip]
+        resultado = subprocess.run(comando, capture_output=True, text=True)
+        print("\n====== RESULTADO =======")
+        print(resultado.stdout)
+
+        if resultado.stderr:
+            print("\n====== ERRO =======")
+            print(resultado.stderr)
+    elif escolha == 5:
+        print("Ok, você optou por um escaneamento mais demorado! Não se esqueça disso!")
+        ip = input("Digite o IP do alvo: ")
+        comando = ["nmap", "-sU", "--script", "vuln", ip]
         resultado = subprocess.run(comando, capture_output=True, text=True)
         print("\n====== RESULTADO =======")
         print(resultado.stdout)
@@ -311,15 +334,32 @@ def exploitdb():
         else:
             print("Digite uma opção Válida")
 def openvas():
-    print("Iniciando servidor OpenVAS")
-    comando = ["sudo", "gvm-start"]
-    resultado = subprocess.run(comando, capture_output=True, text=True)
-    print("\n====== RESULTADO =======")
-    print(resultado.stdout)
+    while True:
+        print("[1] Iniciar OpenVas \n[2] Desligar OpenVAS \n[0] Sair")
+        escolha = int(input("Digite sua escolha: "))
+        if escolha == 1:
+            print("Iniciando servidor OpenVAS")
+            comando = ["gvm-start"]
+            resultado = subprocess.run(comando, capture_output=True, text=True)
+            print("\n====== RESULTADO =======")
+            print(resultado.stdout)
 
-    if resultado.stderr:
-        print("\n====== ERRO =======")
-        print(resultado.stderr)
+            if resultado.stderr:
+                print("\n====== ERRO =======")
+                print(resultado.stderr)
+        elif escolha == 2:
+            print("Desligando servidor OpenVas")
+            comando = ["gvm-stop"]
+            resultado = subprocess.run(comando, capture_output=True, text=True)
+            print("\n====== RESULTADO =======")
+            print(resultado.stdout)
+
+            if resultado.stderr:
+                print("\n====== ERRO =======")
+                print(resultado.stderr)
+        elif escolha == 0:
+            print("Saindo do menu")
+            break
 
 # == Estética ==
 def frases_hacking():
@@ -433,4 +473,4 @@ while True:
 
         break
     else:
-        print("Digite uma opção Válida")        
+        print("Digite uma opção Válida")
