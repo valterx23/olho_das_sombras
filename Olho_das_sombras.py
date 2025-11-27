@@ -1,7 +1,7 @@
 # ================= BIBLIOTECAS ===================
 from art import *
 import subprocess
-
+import random
 # ================= FUNÇÕES =================
 # == RECONHECIMENTO ==
 def the_harvester():
@@ -280,19 +280,63 @@ def sfuzz():
     if resultado.stderr:
         print("\n====== ERRO ======")
         print(resultado.stderr)
+def exploitdb():
+    while True:
+        print(" [1] Procurar exploit \n [2] Baixar exploit \n [0] Voltar ao início")
+        escolha = int(input("Digite sua escolha: "))
+        if escolha == 1:
+            busca = input("Digite o que você quer buscar: ")
+            comando = ["searchsploit", busca]
+            resultado = subprocess.run(comando, capture_output=True, text=True)
+            print("\n====== RESULTADO =======")
+            print(resultado.stdout)
 
-# =============== ESCOLHA DO QUAL TIPO DE SCRIPT =====================
-while True:
-    print("Escolha qual tipo de ferramenta você quer:\n[1] Reconhecimento \n[2] Vulnerabilidade \n[0] Sair do Programa")
-    ferramenta = int(input("Digite sua escolha: "))
+            if resultado.stderr:
+                print("\n====== ERRO =======")
+                print(resultado.stderr)
+        elif escolha == 2:
+            xploit = input("Digite a numeração do exploit: ")
+            comando = ["searchsploit", "-m", xploit]
+            resultado = subprocess.run(comando, text=True, capture_output=True)
+            print("\n====== RESULTADO ======")
+            print(resultado.stdout)
 
-# ============= APLICAÇÃO RECONHECIMENTO ===========================
-    if ferramenta == 1:
-        while True:
-        # ================= LOGO =================
-            tprint("OLHO DAS SOMBRAS", font="standard")
 
-            logo = r'''
+            if resultado.stderr:
+                print("\n====== ERRO ======")
+                print(resultado.stderr)
+
+        elif escolha == 0:
+            break
+        else:
+            print("Digite uma opção Válida")
+def openvas():
+    print("Iniciando servidor OpenVAS")
+    comando = ["sudo", "gvm-start"]
+    resultado = subprocess.run(comando, capture_output=True, text=True)
+    print("\n====== RESULTADO =======")
+    print(resultado.stdout)
+
+    if resultado.stderr:
+        print("\n====== ERRO =======")
+        print(resultado.stderr)
+
+# == Estética ==
+def frases_hacking():
+    frases = ["Hack the planet.",
+        "Trust no input, verify everything.",
+        "In packets we trust.",
+        "Social engineering beats encryption.",
+        "The quieter you become, the more you are able to hear.",
+        "Buffer overflow: because size matters.",
+        "Real hackers don't brute force, they think.",
+        "Cybersecurity is not a product, it's a process.",
+        "Hackers don't break in, they log in.",
+        "Knowledge is power. And power corrupts."]
+    return random.choice(frases)
+
+tprint("OLHO DAS SOMBRAS", font="standard")
+logo = r'''
           ⢀⣀⣤⣤⣤⣤⣴⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⣀⣴⣾⠿⠛⠋⠉⠁⠀⠀⠀⠈⠙⠻⢷⣦⡀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⣤⣾⡿⠋⠁⠀⣠⣶⣿⡿⢿⣷⣦⡀⠀⠀⠀⠙⠿⣦⣀⠀⠀⠀⠀
@@ -301,9 +345,20 @@ while True:
 ⢸⣿⣿⠃⢂⡋⠄⠀⠀⠀⢿⣿⣿⣿⣿⣿⣯⣿⣿⠏⠀⠀⠀⠀⢦⣷⣿⠿⠛⠁
 ⠀⠙⠿⢾⣤⡈⠙⠂⢤⢀⠀⠙⠿⢿⣿⣿⡿⠟⠁⠀⣀⣀⣤⣶⠟⠋⠁⠀⠀⠀
 ⠀⠀⠀⠀⠈⠙⠿⣾⣠⣆⣅⣀⣠⣄⣤⣴⣶⣾⣽⢿⠿⠟⠋⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠛⠛⠙⠋⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠛⠛⠙⠋⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
             '''
-            print(logo)
+print(logo)
+print(f"{frases_hacking()}")
+# =============== ESCOLHA DO QUAL TIPO DE SCRIPT =====================
+while True:
+    print("")
+    print("\nO que você quer hoje?")
+    print("\n[1] Reconhecimento \n[2] Vulnerabilidade \n[0] Sair do Programa")
+    ferramenta = int(input("\nDigite sua escolha: "))
+
+# ============= APLICAÇÃO RECONHECIMENTO ===========================
+    if ferramenta == 1:
+        while True:
             # ================= MENU =================
             print("\n [1] The Harvester")
             print(" [2] Emailharvester")
@@ -342,20 +397,6 @@ while True:
 # ============== APLICAÇÃO VULNERABILIDADE ==================
     elif ferramenta == 2:
         while True:
-        # ================= LOGO =================
-            tprint("OLHO DAS SOMBRAS", font="standard")
-            logo = r'''
-          ⢀⣀⣤⣤⣤⣤⣴⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⣀⣴⣾⠿⠛⠋⠉⠁⠀⠀⠀⠈⠙⠻⢷⣦⡀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⣤⣾⡿⠋⠁⠀⣠⣶⣿⡿⢿⣷⣦⡀⠀⠀⠀⠙⠿⣦⣀⠀⠀⠀⠀
-⠀⠀⢀⣴⣿⡿⠋⠀⠀⢀⣼⣿⣿⣿⣶⣿⣾⣽⣿⡆⠀⠀⠀⠀⢻⣿⣷⣶⣄⠀
-⠀⣴⣿⣿⠋⠀⠀⠀⠀⠸⣿⣿⣿⣿⣯⣿⣿⣿⣿⣿⠀⠀⠀⠐⡄⡌⢻⣿⣿⡷
-⢸⣿⣿⠃⢂⡋⠄⠀⠀⠀⢿⣿⣿⣿⣿⣿⣯⣿⣿⠏⠀⠀⠀⠀⢦⣷⣿⠿⠛⠁
-⠀⠙⠿⢾⣤⡈⠙⠂⢤⢀⠀⠙⠿⢿⣿⣿⡿⠟⠁⠀⣀⣀⣤⣶⠟⠋⠁⠀⠀⠀
-⠀⠀⠀⠀⠈⠙⠿⣾⣠⣆⣅⣀⣠⣄⣤⣴⣶⣾⣽⢿⠿⠟⠋⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠛⠛⠙⠋⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-            '''
-            print(logo)
             # ================= MENU =================
             print("\n [1] CAT")
             print(" [2] Cisco Torch")
@@ -363,6 +404,8 @@ while True:
             print(" [4] Cisco Ocs")
             print(" [5] Oracle Scanner")
             print(" [6] Sfuzz")
+            print(" [7] Exploit DB")
+            print(" [8] OpenVAS")
             print(" [0] Sair\n")
 
             n = int(input("Digite a opção: "))
@@ -379,6 +422,10 @@ while True:
                 oscanner()
             elif n == 6:
                 sfuzz()
+            elif n == 7:
+                exploitdb()
+            elif n == 8:
+                openvas()
             elif n == 0:
                 break
     elif ferramenta == 0:
@@ -386,4 +433,4 @@ while True:
 
         break
     else:
-        print("Digite uma opção Válida")                                                                                                                   
+        print("Digite uma opção Válida")        
