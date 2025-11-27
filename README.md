@@ -5,7 +5,7 @@
 
 ## 📌 Sobre o Projeto
 
-O **Olho das Sombras** é um projeto educacional desenvolvido com o objetivo de apoiar o aprendizado em **Segurança da Informação e Pentest**, utilizando Python para automatizar e centralizar chamadas a ferramentas amplamente conhecidas no meio de segurança.
+O **Olho das Sombras** é um projeto educacional desenvolvido por um estudante se Segurança da Informação com o objetivo de apoiar o aprendizado em **Segurança da Informação e Pentest**, utilizando Python para automatizar e centralizar chamadas a ferramentas amplamente conhecidas no meio de segurança.
 
 O foco é o uso **exclusivo em ambientes controlados**, como:
 - Máquinas virtuais
