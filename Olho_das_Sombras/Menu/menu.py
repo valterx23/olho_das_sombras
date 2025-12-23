@@ -1,7 +1,7 @@
 # ============= BIBLIOTECAS ASSETS ===================
 import random
 from art import *
-import os
+
 # =========== BIBLIOTECAS DAS FERRAMENTAS DE RECONHECIMENTO ==========
 from Reconhecimento.the_harvester import the_harvester
 from Reconhecimento.emailharvester import emailharvester
@@ -83,7 +83,6 @@ def iniciar_menu():
         if ferramenta == 1:
             while True:
                 # ================= MENU =================
-                os.system('clear')
                 print("\n [1] The Harvester")
                 print(" [2] Emailharvester")
                 print(" [3] Reconhecimento DNS")
@@ -133,7 +132,6 @@ def iniciar_menu():
         elif ferramenta == 2:
             while True:
                 # ================= MENU =================
-                os.system('clear')
                 print("\n [1] CAT")
                 print(" [2] Cisco Torch")
                 print(" [3] cge.pl")
@@ -170,7 +168,6 @@ def iniciar_menu():
         # ============= APLICAÇÃO BRUTE FORCE ===========================
         elif ferramenta == 3:
             while True:
-                os.system('clear')
                 print("\n [1] John the Ripper (Hash cracking)")
                 print(" [2] Medusa")
                 print(" [0] Sair\n")
